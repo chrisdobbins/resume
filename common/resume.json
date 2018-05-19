@@ -61,7 +61,7 @@
       },
       "data": {
         "description": [
-            "Collaborate with business and development team members on Guardian, an application that requests digital rights clearances from RSG Media's RightsLogic API",
+            "Collaborate with business and technical team members to develop Guardian, an application that requests digital rights clearances from RSG Media's RightsLogic API",
           "Use Go (Golang) and React to add features to new digital rights management application",
           "Use Docker, Bash, and CircleCI to automate build and deployment processes",
           "Create integrations with tools used for collaboration (e.g., Slack) to notify the team of new builds and additional features"
