@@ -14,10 +14,9 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "cd ../common/bin &&  npm link && cd - && npm link orderDates && react-scripts start",
-    "build": "cd ../common/bin &&  npm link && cd - && npm link orderDates && react-scripts build",
-    "test": "cd ../common/bin &&  npm link && cd - && npm link orderDates && react-scripts test --env=jsdom",
+    "start": "cd ../common/ && npm link && cd - && npm link common && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }
-

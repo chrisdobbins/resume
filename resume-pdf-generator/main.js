@@ -1,8 +1,9 @@
-const resume = require("./resume.json");
-
-const pdfPrinter = require("pdfmake/src/printer");
-const fs = require("fs");
-const moment = require("moment");
+import resume from "../common/resume.json";
+import pdfPrinter from "pdfmake/src/printer";
+import fs from  "fs";
+import  moment from "moment";
+import orderByDate from "../common/bin/orderDates.js";
+import styles from './styles';
 
 main();
 
@@ -10,26 +11,13 @@ function main() {
   writePDF();
 }
 
-function orderByDate(data) {
-  // sorting most recent -> least recent
-  const formatString = "MMMM YYYY";
-  return data.sort((a, b) => {
-    if (a.dates.start && b.dates.start) {
-      return (
-        moment(b.dates.start, formatString) -
-        moment(a.dates.start, formatString)
-      );
-    }
-    return moment(b.dates.end, formatString) - moment(a.dates.End);
-  });
-}
-
 function writePDF() {
   let fonts = {
     Roboto: {
-      normal: "./node_modules/pdfmake/examples/fonts/Roboto-Regular.ttf",
-      bold: "./node_modules/pdfmake/examples/fonts/Roboto-Bold.ttf",
-      bolditalics: "./node_modules/pdfmake/examples/fonts/Roboto-BoldItalic.ttf"
+      normal: "./fonts/Roboto-Regular.ttf",
+      bold: "./fonts/Roboto-Bold.ttf",
+      bolditalics: "./fonts/Roboto-BoldItalic.ttf",
+      italics: "./fonts/Roboto-Italic.ttf"
     }
   };
 
@@ -41,11 +29,7 @@ function writePDF() {
       },
       {
         style: "subheader",
-        text: [resume.contact.email + "\n", resume.contact.github]
-      },
-      {
-        style: "tagline",
-        text: ""
+        stack: [resume.contact.email, resume.contact.github]
       }
     ]
   };
@@ -53,89 +37,76 @@ function writePDF() {
   let experienceHeader = { text: "Experience", style: "experienceHeader" };
   let experienceDescriptions = orderByDate(resume.experience).map(currExp => {
     return {
+        style: "description",
       stack: [
-        currExp.name,
-        `${currExp.dates.start} - ${
-          currExp.dates.end ? currExp.dates.end : "present"
-        }`,
-        currExp.data.description
+      {style: "descriptionHeader",
+       text: currExp.name},
+      {style: "descriptionDates",
+       text: `${currExp.dates.start} - ${currExp.dates.end ? currExp.dates.end : "present"}`},
+      {style: "experienceDescription",
+          ul: currExp.data.description}
       ]
     };
   });
 
   let experienceSection = {
     style: "experienceSection",
-    width: "65%",
     stack: [experienceHeader, experienceDescriptions]
+  };
+
+  let spacerColumn = {
+      width: "5%",
+      text: ""
   };
 
   let educationHeader = { text: "Education", style: "educationHeader" };
   let eduDescriptions = orderByDate(resume.education).map(function(currEdu) {
     return {
+        style: "description",
       stack: [
-        currEdu.name,
-        currEdu.dates.end,
-        currEdu.data.degree || currEdu.data.program
-      ]
+      {style: "descriptionHeader",
+          text: currEdu.name},
+      {style: "descriptionDates",
+          text: currEdu.dates.end},
+      {text: currEdu.data.degree || currEdu.data.program}]
     };
   });
 
   let educationSection = {
     style: "educationSection",
-    width: "20%",
     stack: [educationHeader, eduDescriptions]
   };
 
+  let projectHeader = {
+      text: "Projects",
+      style: "projectHeader"
+  };
+
+ let projectDescriptions = orderByDate(resume.projects).map((project) => {
+     return {
+         style: "description",
+         stack: [{style: "descriptionHeader",
+        text: project.name},
+         {style: "descriptionDates",
+             text: project.dates.end},
+         {stack: project.description}]
+     };
+ });
+
+  let projectSection = {
+      style: "projectSection",
+      stack: [projectHeader, projectDescriptions]
+  };
+
   docDefinition.content.push({
-    columns: [educationSection, experienceSection]
+      columns: [{width: "25%", stack: [educationSection, projectSection]}, spacerColumn, experienceSection]
   });
 
-  // styles
-
-  let styles = {
-    experienceSection: {
-      margin: [25, 0, 0, 0]
-    },
-    header: {
-      bold: true,
-      fontSize: 20,
-      alignment: "center"
-    },
-    tagline: {
-      bold: true,
-      fontSize: 14,
-      alignment: "center",
-      italics: true,
-      margin: [0, 8, 0, 0]
-    },
-    subheader: {
-      bold: true,
-      fontSize: 12,
-      italics: true,
-      alignment: "center"
-    },
-    educationHeader: {
-      bold: true,
-      fontSize: 14,
-      alignment: "center"
-      //margin: [0, 15, 0, 8],
-    },
-    experienceHeader: {
-      bold: true,
-      fontSize: 14,
-      alignment: "center"
-    },
-    description: {},
-    educationDescriptionName: {
-      bold: true,
-      fontSize: 12
-    }
-  };
 
   docDefinition.styles = styles;
   let printer = new pdfPrinter(fonts);
   let pdf = printer.createPdfKitDocument(docDefinition);
 
-  pdf.pipe(fs.createWriteStream("test2.pdf"));
+  pdf.pipe(fs.createWriteStream(`${resume.name.replace(' ', '')}-resume.pdf`));
   pdf.end();
 }

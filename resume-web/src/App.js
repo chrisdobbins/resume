@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import info from "./resume2.json";
 import Education from "./Education.js";
 import Experience from "./Experience.js";
 import Header from "./Header.js";
@@ -9,7 +8,9 @@ import Divider from "material-ui/Divider";
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
+import common from 'common';
 
+const info = common.resume;
 
 class App extends Component {
   render() {

@@ -1,0 +1,85 @@
+{
+  "name": "Christopher Dobbins",
+  "contact": {
+    "email": "christopherjosephdobbins@gmail.com",
+    "github": "https://github.com/chrisdobbins"
+  },
+  "education": [
+    {
+      "name": "General Assembly",
+      "dates": {
+        "end": "October 2015"
+      },
+      "data": {
+        "program": "Web Development Immersive"
+      }
+    },
+    {
+      "name": "Vanderbilt University",
+      "dates": {
+        "end": "May 2011"
+      },
+      "data": {
+        "degree": "Bachelor of Arts, History"
+      }
+    }
+  ],
+  "projects": [
+      {"name": "Weather-Text",
+      "description": ["This is a simple Twilio function that sends the forecast or current conditions to an end user via SMS."],
+      "data": {"url": "https://github.com/chrisdobbins/weather-text"},
+      "dates": {"end": "April 2018"}},
+      {"name": "Slack-GitHub Integration POC",
+      "description": ["This is a stripped-down version of a Slack webhook created to let team members know whenever a new build has been deployed."],
+      "data": {"url": "https://github.com/chrisdobbins/Slack-Github-integration-POC"},
+      "dates": {"end": "January 2018"}},
+      {"name": "Housing Justice",
+      "description": ["This is a civic coding project that helped the Atlanta Legal Aid society in its lawsuit against an allegedly predatory lender."],
+      "data": {"url": "https://github.com/chrisdobbins/housing-justice"},
+      "dates": {"end": "June 2017"}}
+  ],
+  "experience": [
+    {
+      "name": "The Weather Company",
+      "dates": {
+        "start": "June 2016",
+        "end": "September 2016"
+      },
+      "data": {
+        "description": [
+          "Used Node.js and Handlebars to add features to a progressive web app used primarily in developing countries",
+          "Used PhantomJS to automate collection of geographical information as part of the Global Domination project",
+          "Used pure JavaScript to fix bugs on weather.com"
+        ]
+      }
+    },
+    {
+      "name": "Turner Broadcasting",
+      "dates": {
+        "start": "October 2016",
+        "end": ""
+      },
+      "data": {
+        "description": [
+            "Collaborate with business and development team members on Guardian, an application that requests digital rights clearances from RSG Media's RightsLogic API",
+          "Use Go (Golang) and React to add features to new digital rights management application",
+          "Use Docker, Bash, and CircleCI to automate build and deployment processes",
+          "Create integrations with tools used for collaboration (e.g., Slack) to notify the team of new builds and additional features"
+        ]
+      }
+    },
+    {
+      "name": "Elegant Software Solutions",
+      "dates": {
+        "start": "November 2015",
+        "end": "June 2016"
+      },
+      "data": {
+        "description": [
+          "Wrote and maintained SQL Server stored procedures used to generate reports utilized by internal and external clients",
+          "Used T-SQL and batch scripting to creqate a database maintenance plan that created daily differential and weekly full backups, compressed previous backups created in the same week, and deleted old backups."
+        ]
+      }
+    }
+  ]
+}

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Card, { CardContent, CardHeader } from "material-ui/Card";
 import List, { ListItem } from "material-ui/List";
 import Typography from 'material-ui/Typography';
-import orderByDateDesc from 'orderDates';
+import common from 'common';
+const orderByDateDesc = common.orderByDateDesc;
 
 class Experience extends Component {
   render() {
