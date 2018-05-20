@@ -34,13 +34,13 @@
       "data": {"url": "https://github.com/chrisdobbins/Slack-Github-integration-POC"},
       "dates": {"end": "January 2018"}},
       {"name": "Housing Justice",
-      "description": ["This is a civic coding project that helped the Atlanta Legal Aid society in its lawsuit against an allegedly predatory lender."],
+      "description": ["This is a civic coding project that provided data used by the Atlanta Legal Aid society in a lawsuit."],
       "data": {"url": "https://github.com/chrisdobbins/housing-justice"},
       "dates": {"end": "June 2017"}}
   ],
   "experience": [
     {
-      "name": "The Weather Company",
+      "name": "Junior Developer (contract), The Weather Company",
       "dates": {
         "start": "June 2016",
         "end": "September 2016"
@@ -54,7 +54,7 @@
       }
     },
     {
-      "name": "Turner Broadcasting",
+      "name": "Advanced Software Developer, Turner Broadcasting",
       "dates": {
         "start": "October 2016",
         "end": ""
@@ -69,13 +69,13 @@
       }
     },
     {
-      "name": "Elegant Software Solutions",
+      "name": "Junior Consultant, Elegant Software Solutions",
       "dates": {
         "start": "November 2015",
         "end": "June 2016"
       },
       "data": {
-        "description": [
+        "description": ["Worked with executives and developers at MDSi, an IT solutions provider, to maintain a client-facing legacy parts tracking system and to develop its successor",
           "Wrote and maintained SQL Server stored procedures used to generate reports utilized by internal and external clients",
           "Used T-SQL and batch scripting to creqate a database maintenance plan that created daily differential and weekly full backups, compressed previous backups created in the same week, and deleted old backups."
         ]

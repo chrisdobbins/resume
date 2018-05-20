@@ -2,10 +2,13 @@
 
   export default {
     experienceSection: {
-      margin: [0, 0, 0, 0]
+      margin: [0, 0, 20, 0]
     },
+      experienceListItem: {
+          margin: [0, 5, 0, 5]
+      },
       experienceDescription: {
-          margin: [0, 3, 0, 0]
+          margin: [0, 3, 0, 5]
       },
     header: {
       bold: true,

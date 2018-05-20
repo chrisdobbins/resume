@@ -44,7 +44,10 @@ function writePDF() {
       {style: "descriptionDates",
        text: `${currExp.dates.start} - ${currExp.dates.end ? currExp.dates.end : "present"}`},
       {style: "experienceDescription",
-          ul: currExp.data.description}
+          ul: currExp.data.description.map(desc => {
+              return {style: "experienceListItem",
+              text: desc};
+          })}
       ]
     };
   });
@@ -55,7 +58,7 @@ function writePDF() {
   };
 
   let spacerColumn = {
-      width: "5%",
+      width: "10%",
       text: ""
   };
 
