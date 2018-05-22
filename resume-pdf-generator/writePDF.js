@@ -5,11 +5,7 @@ import  moment from "moment";
 import orderByDate from "../common/bin/orderDates.js";
 import styles from './styles';
 
-main();
-
-function main() {
-  writePDF();
-}
+writePDF();
 
 function writePDF() {
   let fonts = {
