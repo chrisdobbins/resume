@@ -6,7 +6,7 @@ There are three discrete components in this project. The shockingly named `/resu
 ## Why This Structure? ##
 It was a good way to learn more about npm and using ES6 modules while reducing duplication of code and the complexity of maintaining that duplication. The latter point is admittedly an overoptimization for such a small scale project, but the process was an edifying, nonetheless.
 
-## TODOs (in no particular order)##
+## TODOs (in no particular order) ##
 * Embed a link to download the PDF.
 * Create a deployment script that generates the PDF and deploys `resume-web` to GitHub Pages.
 * Add a Skills section.
