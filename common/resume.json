@@ -32,12 +32,7 @@
       {"name": "Slack-GitHub Integration POC",
       "description": ["This is a stripped-down version of a Slack webhook created to let team members know whenever a new build has been deployed."],
       "data": {"url": "https://github.com/chrisdobbins/Slack-Github-integration-POC"},
-      "dates": {"end": "January 2018"}},
-      {"name": "Housing Justice",
-      "description": ["This is a civic coding project that provided data used by the Atlanta Legal Aid society in a lawsuit."],
-      "data": {"url": "https://github.com/chrisdobbins/housing-justice"},
-      "dates": {"end": "June 2017"}}
-  ],
+      "dates": {"end": "January 2018"}}],
   "experience": [
     {
       "name": "Junior Developer (contract), The Weather Company",
